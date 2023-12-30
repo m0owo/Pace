@@ -1,17 +1,17 @@
 import { useState } from 'react'
 const InputTask = () => {
-    const [description, setDescription] = useState("");
+    const [taskDescription, setTaskDescription] = useState("");
     
     const handleChange = (e) => {
-        setDescription(e.target.value);
+        setTaskDescription(e.target.value);
     };
 
     const addTask = async e => {
         e.preventDefault();
         try {
-            const taskInput = { description };
+            const taskInput = { task_description: taskDescription };
             const res = await fetch(
-                "http://localhost:3000/todos",
+                "http://localhost:3000/tasks",
                 {
                     method: "POST",
                     headers: { "Content-Type" : "application/json" },
@@ -19,7 +19,7 @@ const InputTask = () => {
                 });
             console.log(JSON.stringify(taskInput));
             console.log(res);
-            setDescription("");
+            setTaskDescription("");
         } catch (err) {
             console.error(err.message);
         }
@@ -29,19 +29,19 @@ const InputTask = () => {
         <>
             <form onSubmit={addTask}
                   className="flex flex-row text-center justify-center 
-                            gap-4 p-20 sm:p-40 transition-all"
+                            gap-4 px-20 sm:px-20 py-10 h-fit transition-all"
             >
                 <input type="text" placeholder="Enter a task"
                        className="h-[40px] w-[80%] border-gray-700 border-[1px] 
                                   rounded-lg px-2"
-                       value={description}
+                       value={taskDescription}
                        onChange={handleChange}
                 />
                 <button type='submit'
                         className="w-[40px] h-[40px] border-gray-700 border-[1px]
                                    rounded-full p-auto hover:bg-gray-900
                                    hover:text-white transition-all"
-                        disabled={!description.trim()}
+                        disabled={!taskDescription.trim()}
                 > + </button>
 
             </form>

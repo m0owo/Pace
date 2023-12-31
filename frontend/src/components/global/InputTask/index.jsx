@@ -49,7 +49,7 @@ const InputTask = () => {
             )}
 
             <button
-                className={`w-[40px] h-[40px] border-gray-700 border-[1px]
+                className={`w-[40px] h-[40px] border-gray-300 border-[1px]
                                rounded-full hover:bg-gray-900 bg-white
                              hover:text-white transition-all z-50
                                fixed m-6 ${expanded ? "bottom-60 right-0" : 
@@ -61,7 +61,7 @@ const InputTask = () => {
             </button>
             <div
                 className={`border-black border-[1px] bottom-0 fixed
-                            w-full rounded-t-lg transition-all z-20 bg-gray-100
+                            rounded-t-lg w-full transition-all z-20 bg-gray-100
                             ${expanded ? "h-[40%]" : "h-[0%] invisible"}`}
             >
                 <form

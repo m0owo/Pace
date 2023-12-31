@@ -4,6 +4,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { RiCheckboxBlankCircleLine } from "react-icons/ri"
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import { HiDotsVertical } from "react-icons/hi";
+import { motion, AnimatePresence } from 'framer-motion';
 import EditTask from '../EditTask';
 
 
@@ -52,11 +53,13 @@ const Tasks = () => {
         }    
         return (
             <>
-                <div className='p-10 sm:p-16 w-full bg-red-50 
+                <motion.div className='p-10 sm:p-16 w-full bg-red-50 
                                 rounded-xl flex flex-col shadow-md
-                                gap-4 relative'>
+                                gap-4 relative'
+                            initial={{y : -100}}
+                            animate={{y: 0}}>
                     <div className='absolute top-5 right-5 flex flex-row justify-end'>
-                        <p className='text-xs opacity-50 font-helveticaneue font-semibold'>
+                        <p className='text-xs opacity-50 font-helveticaneue font-normal'>
                             {/* {(currentStatus == "Done" && ) ?
                             `Date Completed ${task.formatted_completed_at}` :
                             `Date Added ${task.formatted_created_at}` 
@@ -82,7 +85,7 @@ const Tasks = () => {
 
                         </div>
                         <p className={`${(currentStatus == "Done") ? "line-through opacity-40" : "" }
-                                      font-helveticaneue font-bold text-lg sm:text-lg`}>
+                                      font-helveticaneue font-bold text-md sm:text-lg`}>
 							{task.task_description}
 						</p>
                     </div>
@@ -93,7 +96,7 @@ const Tasks = () => {
                                                    transition-all'
                                         onClick={() => {setShowEdit(!showEdit)}} />
 					</div>
-                </div>
+                </motion.div>
             </>
         );
     };
@@ -104,18 +107,19 @@ const Tasks = () => {
                 <NavLink className="my-auto" to="/Pace/">
                     <IoMdArrowRoundBack className='text-2xl my-auto
                                                 rounded-full text-[#4c0e23]
-                                                hover:text-pink-100' 
+                                                hover:text-red-100' 
                                         
                     />
                 </NavLink>
-                <h1 className="text-5xl sm:text-6xl sm:mx-0 text-center 
+                <h1 className="text-5xl sm:text-6xl sm:mx-10 text-center 
                             transition-all font-extrabold p-5 mx-auto font-akrasia
                             text-[#4c0e23]"
                 >
                     My Project
                 </h1>
             </div>
-            <div className="w-full p-10 flex flex-col gap-4 justify-center mb-40">
+            <motion.div className="w-full p-10 flex flex-col gap-4 justify-center mb-40"
+            >
                 {
                     allTasks.map(task => (
                             <Task 
@@ -124,7 +128,7 @@ const Tasks = () => {
                             />
                     ))
                 }
-            </div>
+            </motion.div>
         </>
     );
 };

@@ -20,7 +20,6 @@ const InputTask = () => {
     };
 
     const addTask = async (e) => {
-        e.preventDefault();
         try {
             const taskInput = { task_description: taskDescription };
             const res = await fetch(
@@ -34,6 +33,7 @@ const InputTask = () => {
             console.log(JSON.stringify(taskInput));
             console.log(res);
             setTaskDescription("");
+            after();
         } catch (err) {
             console.error(err.message);
         }

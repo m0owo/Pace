@@ -51,28 +51,28 @@ const InputTask = () => {
             <button
                 className={`w-[40px] h-[40px] border-gray-700 border-[1px]
                                rounded-full hover:bg-gray-900 bg-white
-                             hover:text-white transition-all  
-                               fixed z-10 m-3 ${expanded ? "bottom-60 right-1" : 
+                             hover:text-white transition-all z-50
+                               fixed m-6 ${expanded ? "bottom-60 right-1" : 
                                "bottom-20 right-4"}`}
                 onClick={expandForm}
             >
                 {expanded ? "-" : "+"}
             </button>
-
             <div
-                className={`border-black border-[1px] bottom-0 absolute
-                            w-full rounded-t-lg transition-all z-1 bg-gray-100
+                className={`border-black border-[1px] bottom-0 fixed
+                            w-full rounded-t-lg transition-all z-20 bg-gray-100
                             ${expanded ? "h-[40%]" : "h-[0%] invisible"}`}
             >
                 <form
                     onSubmit={addTask}
-                    className="flex flex-row text-center justify-center 
-                                gap-4 px-20 sm:px-20 py-20 h-fit transition-all"
+                    className="flex flex-row text-center justify-center fixed
+                                gap-4 px-20 sm:px-20 py-20 h-fit transition-all
+                                w-full"
                 >
                     <input
                         type="text"
                         placeholder="Enter a task"
-                        className="h-[40px] w-[80%] border-gray-700 border-[1px] 
+                        className="h-[50px] w-[80%] border-gray-700 border-[1px] 
                                     rounded-lg px-2"
                         value={taskDescription}
                         onChange={handleChange}
@@ -80,13 +80,13 @@ const InputTask = () => {
                     />
                     <button
                         type="submit"
-                        className="w-auto h-[40px] border-gray-700 border-[1px]
+                        className="w-auto h-[50px] border-gray-700 border-[1px]
                                     rounded-full p-2 hover:bg-gray-900 justify-center
                                     hover:text-white transition-all text-nowrap
                                     text-center text-md bg-white"
                         disabled={!taskDescription.trim()}
                     >
-                        Add Task
+                        + Add Task
                     </button>
                 </form>
             </div>

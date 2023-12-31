@@ -157,9 +157,24 @@ app.delete("/tasks/:task_id", async (req, res) => {
 //get all tasks
 app.get("/tasks", async (req, res) => {
     try {
-        const allTasks = await pool.query(
-            "SELECT task_id, task_description, TO_CHAR(created_at, 'YYYY-MM-DD HH12:MI:SS AM') AS formatted_created_at, status, TO_CHAR(completed_at, 'YYYY-MM-DD HH12:MI:SS') AS formatted_completed_at FROM task"
-        );
+        const allTasks = await pool.query(`
+            SELECT 
+                task_id, 
+                task_description, 
+                TO_CHAR(created_at, 'YYYY-MM-DD HH12:MI:SS AM') AS formatted_created_at, 
+                status, 
+                TO_CHAR(completed_at, 'YYYY-MM-DD HH12:MI:SS') AS formatted_completed_at 
+            FROM 
+                task 
+            ORDER BY 
+                CASE
+                    WHEN LOWER(status) = 'to do' THEN 1
+                    WHEN LOWER(status) = 'doing' THEN 2
+                    WHEN LOWER(status) = 'done' THEN 3
+                    ELSE 4
+                END,
+                created_at DESC
+        `);
         res.json(allTasks.rows);
     } catch (error) {
         console.error(error.message);

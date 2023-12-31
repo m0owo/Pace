@@ -122,7 +122,7 @@ app.put("/tasks/:task_id/status", async (req, res) => {
 
         if ( status == "Doing" || status == "To Do" ) {
             const editTask = await pool.query(
-                "UPDATE task SET status = $1, completed_at = null, WHERE task_id = $2",
+                "UPDATE task SET status = $1 WHERE task_id = $2",
                 [status, task_id]
             );
         } else if ( status == "Done" ) {
@@ -158,7 +158,7 @@ app.delete("/tasks/:task_id", async (req, res) => {
 app.get("/tasks", async (req, res) => {
     try {
         const allTasks = await pool.query(
-            "SELECT task_id, task_description, TO_CHAR(created_at, 'YYYY-MM-DD HH12:MI:SS AM') AS formatted_created_at, status, TO_CHAR(completed_at, 'YYYY-MM-DD HH24:MI:SS') AS formatted_completed_at FROM task"
+            "SELECT task_id, task_description, TO_CHAR(created_at, 'YYYY-MM-DD HH12:MI:SS AM') AS formatted_created_at, status, TO_CHAR(completed_at, 'YYYY-MM-DD HH12:MI:SS') AS formatted_completed_at FROM task"
         );
         res.json(allTasks.rows);
     } catch (error) {
@@ -171,7 +171,7 @@ app.get("/tasks/:task_id", async (req, res) => {
     try {
         const { task_id } = req.params;
         const tasks = await pool.query(
-            "SELECT task_id, task_description, TO_CHAR(created_at, 'YYYY-MM-DD HH12:MI:SS AM') AS formatted_created_at, status, TO_CHAR(completed_at, 'YYYY-MM-DD HH24:MI:SS') AS formatted_completed_at FROM task WHERE task_id = $1",
+            "SELECT task_id, task_description, TO_CHAR(created_at, 'YYYY-MM-DD HH12:MI:SS AM') AS formatted_created_at, status, TO_CHAR(completed_at, 'YYYY-MM-DD HH12:MI:SS') AS formatted_completed_at FROM task WHERE task_id = $1",
             [task_id]
         );
         res.json(tasks.rows);

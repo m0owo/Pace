@@ -7,11 +7,11 @@ const Navbar = () => {
         <>
             <div className="flex justify-center bottom-0 right-0 left-0 fixed p-2 z-10">
                 <div className="flex flex-row justify-center m-2 rounded-xl gap-10
-                                w-full p-2 bg-[#212]"
+                                w-full p-2 bg-[#33182a]"
                 >
-                    <NavbarLink icon={<AiOutlineHome className="m-auto text-xl text-[#cc2048] group-hover:text-[#4c0e23]" />}
+                    <NavbarLink icon={<AiOutlineHome className="m-auto text-xl text-[#ce5974] group-hover:text-[#4c0e23]" />}
                                 link="/Pace/" label="Home" />    
-                    <NavbarLink icon={<RiCalendarTodoLine className="m-auto text-xl text-[#cc2048] group-hover:text-[#4c0e23]" />}
+                    <NavbarLink icon={<RiCalendarTodoLine className="m-auto text-xl text-[#ce5974] group-hover:text-[#4c0e23]" />}
                                 link="/Pace/tasks/" label="Tasks" />
 
                 </div>
@@ -28,7 +28,7 @@ const NavbarLink = ({icon, link, label}) => {
                      to={link}
             >
                 {icon}
-                <p className="text-center text-sm text-[#cc2048]
+                <p className="text-center text-sm text-[#ce5974]
                             group-hover:text-[#4c0e23] font-akrasia">
                 {label}
                 </p>

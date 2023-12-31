@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'akrasia': ["AkrasiaVP Demo"],
+        'dillan': ["MADE Dillan"],
+        'kento': ["Kento"],
+        'helveticaneue': ["Helvetica Neue"]
+      }
+    },
   },
   plugins: [],
 }

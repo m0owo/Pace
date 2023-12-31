@@ -1,9 +1,9 @@
 const EditTask = () => {
     return (
         <>
-            <p>This is for editting task</p>
-            <div>
-
+            <div className="absolute right-6 bg-black text-white flex flex-col
+                            p-10 gap-8 overflow-scroll rounded-xl"
+            >
             </div>
         </>
     )

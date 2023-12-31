@@ -43,7 +43,7 @@ const InputTask = () => {
         <>
             {expanded && (
                 <div
-                    className="fixed inset-0 h-[61%] bg-black opacity-40"
+                    className="fixed inset-0 h-[61%] bg-black opacity-40 z-20"
                     onClick={expandForm}
                 ></div>
             )}
@@ -52,7 +52,7 @@ const InputTask = () => {
                 className={`w-[40px] h-[40px] border-gray-700 border-[1px]
                                rounded-full hover:bg-gray-900 bg-white
                              hover:text-white transition-all z-50
-                               fixed m-6 ${expanded ? "bottom-60 right-1" : 
+                               fixed m-6 ${expanded ? "bottom-60 right-0" : 
                                "bottom-20 right-4"}`}
                 onClick={expandForm}
             >

@@ -122,7 +122,7 @@ app.put("/tasks/:task_id/status", async (req, res) => {
 
         if ( status == "Doing" || status == "To Do" ) {
             const editTask = await pool.query(
-                "UPDATE task SET status = $1, completed_at = null WHERE task_id = $2",
+                "UPDATE task SET status = $1, completed_at = null, WHERE task_id = $2",
                 [status, task_id]
             );
         } else if ( status == "Done" ) {

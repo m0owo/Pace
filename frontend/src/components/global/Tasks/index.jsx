@@ -1,8 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { RiCheckboxBlankCircleLine } from "react-icons/ri"
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import { HiDotsVertical } from "react-icons/hi";
+import EditTask from '../EditTask';
+
 
 const Tasks = () => {
     const [allTasks, setAllTasks] = useState([]);
@@ -26,6 +29,7 @@ const Tasks = () => {
     console.log(allTasks);
 
     const Task = ({task}) => {
+        const [showEdit, setShowEdit] = useState(false);
         const [currentStatus, setCurrentStatus] = useState(task.status);
 
         async function changeStatus() {
@@ -60,7 +64,7 @@ const Tasks = () => {
                             }
                         </p>
                     </div>
-                    <div className='h-[90%] flex flex-row gap-5'>
+                    <div className='h-[90%] flex flex-row gap-5 relative'>
                         <div onClick={changeStatus}
                             className='flex flex-row transition-all'>
                                 <RiCheckboxCircleFill className={`my-auto text-2xl transition-all
@@ -80,13 +84,14 @@ const Tasks = () => {
                         <p className={`${(currentStatus == "Done") ? "line-through opacity-40" : "" }`}>
 							{task.task_description}
 						</p>
-						<div className='flex flex-col relative'>
-							<div className='flex flex-col'></div>
-							<div className="fixed right-0">
-								<HiDotsVertical/>
-							</div>
-						</div>
                     </div>
+					<div className='absolute top-5 right-5 flex flex-row'>
+                        <EditTask prop={showEdit} setProp={setShowEdit} task={task} after={getTasks} />
+						<HiDotsVertical className='absolute right-0 sm:my-12 my-8 rounded-full text-2xl p-1
+                                                 hover:text-gray-100 hover:bg-gray-800 sm:text-3xl
+                                                   transition-all'
+                                        onClick={() => {setShowEdit(!showEdit)}} />
+					</div>
                 </div>
             </>
         );
@@ -95,11 +100,15 @@ const Tasks = () => {
     return (
         <>
             <div className='flex flex-row p-5'>
-                <IoMdArrowRoundBack className='text-2xl my-auto
-                                               rounded-full hover:bg-pink-100
-                                               hover:text-white' />
+                <NavLink className="my-auto" to="/Pace/">
+                    <IoMdArrowRoundBack className='text-2xl my-auto
+                                                rounded-full hover:bg-pink-100
+                                                hover:text-white' 
+                                        
+                    />
+                </NavLink>
                 <h1 className="text-4xl sm:text-5xl sm:mx-0 text-center 
-                               transition-all font-bold p-5 mx-auto"
+                            transition-all font-bold p-5 mx-auto"
                 >
                     My Project
                 </h1>

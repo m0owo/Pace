@@ -53,7 +53,8 @@ const InputTask = () => {
                                rounded-full hover:bg-gray-900 bg-white
                              hover:text-white transition-all z-50
                                fixed m-6 ${expanded ? "bottom-60 right-0" : 
-                               "bottom-20 right-4"}`}
+                               "bottom-20 right-4"} font-dillan font-bold
+                               text-2xl`}
                 onClick={expandForm}
             >
                 {expanded ? "-" : "+"}
@@ -73,7 +74,7 @@ const InputTask = () => {
                         type="text"
                         placeholder="Enter a task"
                         className="h-[50px] w-[80%] border-gray-700 border-[1px] 
-                                    rounded-lg px-2"
+                                    rounded-lg px-2 font-helveticaneue font-normal"
                         value={taskDescription}
                         onChange={handleChange}
                         ref={taskInputRef}
@@ -83,7 +84,8 @@ const InputTask = () => {
                         className="w-auto h-[50px] border-gray-700 border-[1px]
                                     rounded-full p-2 hover:bg-gray-900 justify-center
                                     hover:text-white transition-all text-nowrap
-                                    text-center text-md bg-white"
+                                    text-center text-md bg-white font-helveticaneue
+                                    font-semibold"
                         disabled={!taskDescription.trim()}
                     >
                         + Add Task

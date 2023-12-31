@@ -7,6 +7,7 @@ const TasksList = () => {
     return (
         <>
         <InputTask />
+        <Tasks/>
         </>
 
     );

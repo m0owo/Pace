@@ -59,8 +59,8 @@ const Tasks = () => {
                     <div className='absolute top-5 right-5 flex flex-row justify-end'>
                         <p className='text-xs opacity-50'>
                             {(currentStatus == "Done") ?
-                            `Date Completed ${task.completed_at}` :
-                            `Date Added ${task.created_at}` 
+                            `Date Completed ${task.formatted_completed_at}` :
+                            `Date Added ${task.formatted_created_at}` 
                             }
                         </p>
                     </div>

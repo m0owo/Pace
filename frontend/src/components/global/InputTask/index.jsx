@@ -53,7 +53,7 @@ const InputTask = () => {
                                rounded-full hover:bg-gray-900 bg-white
                              hover:text-white transition-all z-50
                                fixed m-6 ${expanded ? "bottom-60 right-0" : 
-                               "bottom-20 right-4"} font-dillan font-bold
+                               "bottom-[100px] right-4"} font-dillan font-bold
                                text-2xl`}
                 onClick={expandForm}
             >

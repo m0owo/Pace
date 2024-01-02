@@ -6,13 +6,14 @@ import { motion } from "framer-motion";
 const Navbar = () => {
     return (
         <>
-            <motion.div className="flex justify-center bottom-0 right-0 left-0 fixed p-2 z-10"
+            <motion.div className="flex justify-center bottom-0 right-0 
+                                   left-0 fixed p-2 z-10 sm:w-fit m-auto"
                         initial={{y:500}}
                         animate={{y:0}}
                         transition={{duration:0.3}}
             >
-                <div className="flex flex-row justify-center m-2 rounded-xl gap-10
-                                w-full p-2 bg-[#33182a]"
+                <div className="flex flex-row justify-center m-2 rounded-3xl gap-10
+                                w-full p-4 px-2 bg-[#33182a] sm:px-60"
                 >
                     <motion.div initial={{x:-400}}
                                 animate={{x:0}}
@@ -38,7 +39,8 @@ const NavbarLink = ({icon, link, label}) => {
     return (
         <>
             <NavLink className="p-2 rounded-lg hover:cursor-pointer group
-                                flex flex-col transition-all justify-center" 
+                                flex flex-col transition-all justify-center
+                                " 
                      to={link}
             >
                 {icon}

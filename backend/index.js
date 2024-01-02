@@ -173,7 +173,7 @@ app.get("/tasks", async (req, res) => {
                     WHEN LOWER(status) = 'done' THEN 3
                     ELSE 4
                 END,
-                created_at DESC
+                created_at ASC
         `);
         res.json(allTasks.rows);
     } catch (error) {

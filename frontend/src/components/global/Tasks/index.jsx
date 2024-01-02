@@ -73,7 +73,8 @@ const Tasks = () => {
                                 <RiCheckboxCircleFill className={`my-auto text-2xl transition-all
                                                                 ${(currentStatus == "Done") ? 
                                                                     "opacity-100 scale-100" : 
-                                                                    "opacity-0 scale-0 w-0"}`}
+                                                                    "opacity-0 scale-0 w-0"}
+                                                                    fill-red-900`}
                                                     onClick={() => setCurrentStatus("To Do")}
                                 />
                                 <RiCheckboxBlankCircleLine className={`my-auto text-2xl transition-all

@@ -5,14 +5,14 @@
 @layer base {
     @font-face {
         font-family: "AkrasiaVP Demo";
-        src: url("../public/fonts/AkrasiaVPDemo-Style.otf");
+        src: url("/fonts/AkrasiaVPDemo-Style.otf");
     }
     @font-face {
         font-family: "MADE Dillan";
-        src: url("../public/fonts/MADE\ Dillan\ PERSONAL\ USE.otf");
+        src: url("/fonts/MADE\ Dillan\ PERSONAL\ USE.otf");
     }
     @font-face {
         font-family: "Kento";
-        src: url("../public/fonts/Kento-Font/");
+        src: url("/fonts/Kento-Font/");
     }
 }

@@ -54,7 +54,7 @@ const EditTask = ({prop, setProp, task, after}) => {
             <div className='w-screen'>
                 {editing && (
                         <div
-                            className="fixed inset-0 h-[61%] bg-black opacity-40 z-20"
+                            className="fixed inset-0 h-[100%] bg-black opacity-40 z-20"
                             onClick={toggleEditing}
                         ></div>
                 )}
@@ -63,7 +63,7 @@ const EditTask = ({prop, setProp, task, after}) => {
                                 ${editing ? "h-[40%]" : "h-[0%] invisible"}`}
                 >
                     <h2 className='font-helveticaneue font-semibold text-2xl
-                                   sm:text-3xl pt-5 pl-5'>Task Description</h2>
+                               sm:text-3xl pt-10 pl-8'>Edit Task Description</h2>
                     <form
                         onSubmit={editTask}
                         className="flex flex-row text-center justify-center fixed

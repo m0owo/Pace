@@ -43,7 +43,7 @@ const InputTask = () => {
         <>
             {expanded && (
                 <div
-                    className="fixed inset-0 h-[61%] bg-black opacity-40 z-20"
+                    className="fixed inset-0 h-[100%] bg-black opacity-40 z-20"
                     onClick={expandForm}
                 ></div>
             )}
@@ -64,11 +64,13 @@ const InputTask = () => {
                             rounded-t-lg w-full transition-all z-20 bg-gray-100
                             ${expanded ? "h-[40%]" : "h-[0%] invisible"}`}
             >
+                <h2 className='font-helveticaneue font-semibold text-2xl
+                               sm:text-3xl pt-10 pl-8'>Task Description</h2>
                 <form
                     onSubmit={addTask}
                     className="flex flex-row text-center justify-center fixed
-                                gap-4 px-20 sm:px-20 py-20 h-fit transition-all
-                                w-full"
+                               gap-4 px-20 sm:px-20 py-6 h-fit transition-all
+                               w-full"
                 >
                     <input
                         type="text"
